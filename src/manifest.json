@@ -1,0 +1,13 @@
+{
+  "name": "Travel Location",
+  "version": "1.0",
+  "description": "Find travel article locations",
+  "permissions": [
+    "contextMenus",
+    "https://5q3seoyxvc.execute-api.eu-west-1.amazonaws.com/prod"
+  ],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "manifest_version": 2
+}
