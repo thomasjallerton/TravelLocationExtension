@@ -6,6 +6,9 @@
     "contextMenus",
     "https://5q3seoyxvc.execute-api.eu-west-1.amazonaws.com/prod"
   ],
+  "icons": {
+    "16": "icon.png"
+  },
   "background": {
     "scripts": ["background.js"]
   },
