@@ -4,13 +4,17 @@
   "description": "Find travel article locations",
   "permissions": [
     "contextMenus",
-    "https://5q3seoyxvc.execute-api.eu-west-1.amazonaws.com/prod"
+    "https://5q3seoyxvc.execute-api.eu-west-1.amazonaws.com/prod",
+    "storage"
   ],
   "icons": {
-    "16": "icon.png"
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
   },
   "background": {
     "scripts": ["background.js"]
   },
+  "options_page": "options.html",
   "manifest_version": 2
 }
