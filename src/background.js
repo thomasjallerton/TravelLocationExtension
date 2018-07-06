@@ -1,8 +1,32 @@
 
-function findLocation(info) {
-    console.log("linkUrl: " + info.linkUrl);
 
-    let request = {url: info.linkUrl};
+let title = "Find travel location";
+chrome.contextMenus.create({"title": title, "contexts":["link"], "onclick": findLocationFromLink});
+chrome.contextMenus.create({"title": title, "contexts":["browser_action"], "onclick": findLocationFromPage});
+
+chrome.browserAction.onClicked.addListener(function(tab) {
+    url = tab.url;
+    console.log("pageUrl: " + url);
+    findLocation(url)
+});
+
+function findLocationFromLink(info) {
+    console.log("linkUrl: " + info.linkUrl);
+    findLocation(info.linkUrl)
+}
+
+
+
+function findLocationFromPage() {
+    chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
+        url = tabs[0].url;
+        console.log("pageUrl: " + url);
+        findLocation(url)
+    });
+}
+
+function findLocation(url) {
+    let request = {url: url};
 
     let xhr = new XMLHttpRequest();
     chrome.storage.sync.get({
@@ -28,8 +52,3 @@ function findLocation(info) {
         xhr.send(JSON.stringify(request));
     });
 }
-
-
-
-let title = "Find travel location";
-chrome.contextMenus.create({"title": title, "contexts":["link"], "onclick": findLocation});
