@@ -1,6 +1,6 @@
 {
   "name": "Travel Article Location",
-  "version": "1.4",
+  "version": "1.5",
   "description": "Find travel article locations",
   "permissions": [
     "contextMenus",
