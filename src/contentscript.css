@@ -1,0 +1,46 @@
+@font-face {
+    font-family: "chocolate";
+    src: url(chrome-extension://__MSG_@@extension_id__/font.ttf);
+}
+
+#overlay {
+    position: fixed; /* Sit on top of the page content */
+    display: none; /* Hidden by default */
+    width: 100%; /* Full width (cover the whole page) */
+    height: 100%; /* Full height (cover the whole page) */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+    z-index: 2000; /* Specify a stack order in case you're using a different order for other elements */
+    cursor: pointer; /* Add a pointer on hover */
+}
+
+#text{
+    position: absolute;
+    font-family: Helvetica, sans-serif;
+    top: 40%;
+    left: 50%;
+    font-size: 30px;
+    color: black;
+    background-color: rgb(241, 237, 225);
+    transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -moz-border-radius:10px;
+    border-radius:10px;
+}
+
+#inner-text {
+    padding: 5px;
+}
+
+#overlay-title{
+    font-family: "chocolate", sans-serif;
+    -moz-border-radius:10px;
+    border-radius:10px;
+    font-size: 40px;
+    color: black;
+    padding: 15px;
+    background-color: rgb(245, 206, 40);
+}
