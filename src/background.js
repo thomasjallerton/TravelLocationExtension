@@ -41,11 +41,14 @@ function findLocation(url) {
             if(xhr.readyState == 4 && xhr.status == 200) {
                 let response = JSON.parse(xhr.responseText);
 
+                let googleMapsLink = "https://www.google.co.uk/maps/search/";
                 let result = "";
                 for (let i = 0; i < response.words.length; i++) {
-                    result += response.words[i].word + " occurs " + response.words[i].count + " times<br>"
+                    let word = response.words[i].word;
+                    result += "<a href=\"" + googleMapsLink + word.replace(" ", "+") + "\" target=\"_blank\" rel=\"noopener\"><u>" + word + "</u></a>" +
+                        " occurs " + response.words[i].count + " times<br>"
                 }
-                console.log("Sending request");
+                console.log("Sending request, result is:\n" + result);
                 chrome.tabs.query({active: true, currentWindow: true}, function(tabs){
                     chrome.tabs.sendMessage(tabs[0].id, {results: result}, function(response) {});
                 });

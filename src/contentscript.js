@@ -1,15 +1,16 @@
 // Add bubble to the top of the page.
 let overlay = document.createElement('div');
-//overlay.setAttribute('class', 'selection_bubble');
 overlay.setAttribute("id", "overlay");
 
 document.body.appendChild(overlay);
 
 chrome.runtime.onMessage.addListener(
     function (request, sender, sendResponse) {
-        // Close the bubble when we click on the screen.
-        document.addEventListener('mousedown', function (e) {
-            overlayOff();
+        document.addEventListener('mousedown', function (event) {
+            var target= 'target' in event? event.target : event.srcElement;
+            if (target.tagName === "DIV") {
+                overlayOff();
+            }
         }, false);
 
         console.log("GOT results: " + request.results);
